@@ -1,0 +1,12 @@
+# Revisores automáticos por área (PGC 2 e 5.2).
+#
+# @felipekockmendonca é o par de revisão: é chamado em todo PR.
+# Mudanças em pipelines e dependências são de maior risco:
+# o responsável pelo projeto (@Gguip05) também é chamado.
+# Vale a ÚLTIMA linha que casar com o arquivo.
+
+*                @felipekockmendonca
+/.github/        @Gguip05 @felipekockmendonca
+/docs/           @Gguip05 @felipekockmendonca
+/pubspec.yaml    @Gguip05 @felipekockmendonca
+/pubspec.lock    @Gguip05 @felipekockmendonca
