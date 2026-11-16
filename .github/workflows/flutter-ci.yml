@@ -16,3 +16,24 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze --no-fatal-infos
       - run: flutter test
+
+  # Entrega (PGC 3.2 e 6.1). O QR Fácil ainda não tem canal de publicação:
+  # os jobs abaixo apenas simulam a implantação para exercitar os Environments
+  # do GitHub. O de production só roda depois da aprovação do revisor obrigatório.
+  deploy-staging:
+    name: Deploy staging (simulado)
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - run: echo "Implantação simulada no environment staging (commit ${{ github.sha }})."
+
+  deploy-production:
+    name: Deploy production (simulado)
+    needs: deploy-staging
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - run: echo "Implantação simulada no environment production, aprovada pelo revisor obrigatório."
