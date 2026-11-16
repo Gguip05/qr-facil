@@ -1,0 +1,23 @@
+name: Defeito
+description: Relate um erro encontrado
+title: 'fix: '
+body:
+  - type: input
+    id: versao
+    attributes:
+      label: Versão / plataforma
+      description: 'Versão do pubspec.yaml e onde ocorreu (ex.: "1.0.0+1 · Android 14")'
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado x obtido
+    validations:
+      required: true
