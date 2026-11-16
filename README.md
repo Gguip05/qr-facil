@@ -39,13 +39,14 @@ flutter test
 | `lib/` | Código-fonte Dart do aplicativo |
 | `test/` | Testes automatizados |
 | `docs/plano-gcs.md` | [Plano de Gerenciamento de Configuração (PGC)](docs/plano-gcs.md) |
-| `.github/workflows/` | Pipeline de CI (`flutter analyze` e `flutter test`) |
+| `docs/evidencia-recusa-push-main.md` | [Evidência da recusa do push direto na `main`](docs/evidencia-recusa-push-main.md) |
+| `.github/workflows/` | Pipeline de CI (`flutter analyze` e `flutter test`) e deploy simulado em `staging` e `production` |
 | `.github/` | CODEOWNERS, template de Pull Request e templates de Issue |
 | `pubspec.yaml` / `pubspec.lock` | Dependências e versões travadas |
 
 ## Como contribuir
 
-A `main` é protegida e não aceita push direto. Toda mudança segue o [PGC](docs/plano-gcs.md):
+A `main` é protegida e não aceita push direto ([evidência](docs/evidencia-recusa-push-main.md)). Toda mudança segue o [PGC](docs/plano-gcs.md):
 
 1. Crie uma branch `feature/<descricao-curta>` a partir da `main`.
 2. Faça commits no padrão Conventional Commits (`feat:`, `fix:`, `docs:`...).
