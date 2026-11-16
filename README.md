@@ -32,6 +32,28 @@ flutter test
 - Limite e contador de 120 caracteres.
 - Mensagem de orientação enquanto não há conteúdo.
 
+## Estrutura do repositório
+
+| Caminho | Conteúdo |
+| --- | --- |
+| `lib/` | Código-fonte Dart do aplicativo |
+| `test/` | Testes automatizados |
+| `docs/plano-gcs.md` | [Plano de Gerenciamento de Configuração (PGC)](docs/plano-gcs.md) |
+| `.github/workflows/` | Pipeline de CI (`flutter analyze` e `flutter test`) |
+| `.github/` | CODEOWNERS, template de Pull Request e templates de Issue |
+| `pubspec.yaml` / `pubspec.lock` | Dependências e versões travadas |
+
+## Como contribuir
+
+A `main` é protegida e não aceita push direto. Toda mudança segue o [PGC](docs/plano-gcs.md):
+
+1. Crie uma branch `feature/<descricao-curta>` a partir da `main`.
+2. Faça commits no padrão Conventional Commits (`feat:`, `fix:`, `docs:`...).
+3. Abra um Pull Request; o CI precisa passar e o par de revisão precisa aprovar.
+4. O merge é feito por squash.
+
+Environments: `staging` e `production` (este exige aprovação de @Gguip05).
+
 ## Autor
 
 Guilherme Peiter
