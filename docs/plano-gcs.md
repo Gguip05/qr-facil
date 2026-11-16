@@ -97,6 +97,8 @@ Environments configurados no GitHub (Settings → Environments):
 | `staging` | Implantação apenas a partir de branches protegidas. |
 | `production` | Implantação apenas a partir de branches protegidas, com aprovação obrigatória de @Gguip05 (revisor obrigatório). |
 
+O workflow Flutter CI possui os jobs `deploy-staging` e `deploy-production`, executados a cada merge na `main`. Enquanto o canal de publicação não for definido, eles apenas simulam a implantação, para exercitar a promoção entre os Environments e a aprovação obrigatória de `production`.
+
 ### 3.3 Estratégia de Branching e Versionamento
 O projeto utiliza GitHub Flow. A branch main contém a versão estável; branches feature/<descricao-curta> devem ser usadas para mudanças futuras, com Pull Request antes da integração. O repositório público é https://github.com/Gguip05/qr-facil.
 
@@ -126,7 +128,7 @@ Os itens de configuração do QR Fácil são versionados no mesmo repositório q
 
 - Artefatos de build: APK/AAB ou pacote Web, quando gerados para distribuição; não devem ser versionados no código-fonte.
 
-- Documentação: relatório N1-E5, README.md e este plano (docs/plano-gcs.md).
+- Documentação: relatório N1-E5, README.md, este plano (docs/plano-gcs.md) e a evidência da recusa do push direto na main (docs/evidencia-recusa-push-main.md).
 
 - Modelos de colaboração: .github/CODEOWNERS, .github/pull_request_template.md e .github/ISSUE_TEMPLATE/.
 
@@ -173,7 +175,7 @@ Todo push para main e todo Pull Request disparam o workflow Flutter CI no GitHub
 *Quality gate: zero erros bloqueantes em flutter analyze; todos os testes de flutter test aprovados; dependências reproduzíveis por pubspec.lock; build da plataforma-alvo concluído. Não há cobertura mínima medida configurada no pacote entregue.*
 
 ## 6. Entrega e Implantação Contínua (CD)
-O CI está configurado no GitHub Actions. O projeto ainda não possui pipeline de CD nem ambiente remoto; as entregas são builds gerados para Android ou Web. Quando houver automação de CD, o mesmo artefato validado em CI deverá ser promovido sem recompilação.
+O CI está configurado no GitHub Actions. O projeto ainda não possui ambiente remoto, e o pipeline de CD é simulado (seção 3.2); as entregas são builds gerados para Android ou Web. Quando houver automação de CD, o mesmo artefato validado em CI deverá ser promovido sem recompilação.
 
 ### 6.1 Etapas do Pipeline de CD
 1. Gerar o artefato de release após o quality gate: flutter build apk/aab ou flutter build web, conforme a plataforma.
